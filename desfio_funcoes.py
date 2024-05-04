@@ -6,6 +6,7 @@ def menu():
     [d]\tDepositar
     [s]\tSacar
     [e]\tExtrato
+    [nu]\tNovo usuário
     [nc]\tNova conta
     [q]\tSair
     => """
@@ -58,7 +59,7 @@ def criar_usuario(usuarios):
         print("CPF informado já cadastrado!")
         return
     nome = input("Informe seu nome completo: ")
-    endereco = input("Informe o endereço: ")  # Corrigido o nome da variável
+    endereco = input("Informe o endereço: ")
     usuarios.append({"nome": nome, "endereco": endereco, "cpf": cpf})
     print("Usuário criado com sucesso!")
 
@@ -93,6 +94,8 @@ def main():
             saldo, extrato = sacar(saldo, extrato, limite, numero_saques, LIMITE_SAQUES)
         elif opcao == "e":
             exibir_extrato(saldo, extrato)
+        elif opcao == "nu":
+            criar_usuario(usuarios)
         elif opcao == "nc":
             numero_conta = len(contas)
             conta = criar_conta("0001", numero_conta, usuarios)  # Corrigido: agência fixa
